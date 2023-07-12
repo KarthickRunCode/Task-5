@@ -1,0 +1,92 @@
+1.for given JSON iterate over all for loops(for,for in, for of, foreach) in javascript
+
+
+What is JSON?
+Before we look at how to deal with JSON, let’s take a second to understand what it is (and what it isn’t).
+JSON stands for JavaScript Object Notation. It’s a language-independent, text-based format, which is commonly used for transmitting data in web applications. JSON was inspired by the JavaScript Object Literal notation, but there are differences between the two. For example, in JSON keys must be quoted using double quotes, while in object literals this is not the case.
+There are two ways data can be stored in JSON:
+a collection of name/value pairs (aka a JSON object)
+an ordered list of values (aka a JSON array)
+When receiving data from a web server, the data is always a string, which means that it’s your job to convert it into a data structure you can work with.
+Looping Using JSON:
+JSON stands for JavaScript Object Notation. It’s a light format for storing and transferring data from one place to another. So in looping, it is one of the most commonly used techniques for transporting data that is the array format or in attribute values. 
+
+Here’s an example that demonstrates the above concept.
+
+{% code-block language="js" %}
+jsonData ={
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+}
+‍{% code-block-end %}
+JavaScript Object Notation also consists of a root, namely, the jsonData. It further contains three nodes that are called, “one”, “two”, and “three”. 
+
+Here’s how you can withdraw a piece of information from JSON:
+
+{% code-block language="js" %}
+var json = {
+   one: [11, 12, 13, 14, 15],
+   two: [21, 22, 23],
+   three: [31, 32]
+}
+};
+for(var key in json.jsonData) {
+   for (var key1 in json.jsonData[key]) {
+       console.log(json.jsonData[key][key1])
+   }
+}
+‍{% code-block-end %}
+Above, I used two For In Loops to make use of JSON and extract information from it. One of those loops is the outer loop that runs three times. If you’re wondering why it needs to run three times, that’s because it has to cover the above-mentioned nodes.
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
+
+3.difference between window screen and document 
+	
+	window:
+Each browser tab has its own top-level window object. Each <iframe> (and deprecated <frame>) element has its own window object too, nested within a parent window. Each of these windows gets its own separate global object. window.window always refers to window, but window.parent and window.top might refer to enclosing windows, giving access to other execution contexts. In addition to document and screen described below, window properties include
+setTimeout() and setInterval() binding event handlers to a timer
+location giving the current URL
+history with methods back() and forward() giving the tab's mutable history
+navigator describing the browser software
+
+
+
+document:
+Each window object has a document object to be rendered. These objects get confused in part because HTML elements are added to the global object when assigned a unique id. E.g., in the HTML snippet
+<body> <p id="holyCow"> This is the first paragraph.</p> </body>
+the paragraph element can be referenced by any of the following:
+window.holyCow or window["holyCow"]
+document.getElementById("holyCow")
+document.querySelector("#holyCow")
+document.body.firstChild
+document.body.children[0]
+
+Briefly, with more detail below,
+window is the execution context and global object for that context's JavaScript
+document contains the DOM, initialized by parsing HTML
+screen describes the physical display's full screen
+window
+Each browser tab has its own top-level window object. Each <iframe> (and deprecated <frame>) element has its own window object too, nested within a parent window. Each of these windows gets its own separate global object. window.window always refers to window, but window.parent and window.top might refer to enclosing windows, giving access to other execution contexts. In addition to document and screen described below, window properties include
+setTimeout() and setInterval() binding event handlers to a timer
+location giving the current URL
+history with methods back() and forward() giving the tab's mutable history
+navigator describing the browser software
+document
+Each window object has a document object to be rendered. These objects get confused in part because HTML elements are added to the global object when assigned a unique id. E.g., in the HTML snippet
+<body> <p id="holyCow"> This is the first paragraph.</p> </body>
+the paragraph element can be referenced by any of the following:
+window.holyCow or window["holyCow"]
+document.getElementById("holyCow")
+document.querySelector("#holyCow")
+document.body.firstChild
+document.body.children[0]
+screen
+The window object also has a screen object with properties describing the physical display:
+screen properties width and height are the full screen
+screen properties availWidth and availHeight omit the toolbar
+The portion of a screen displaying the rendered document is the viewport in JavaScript, which is potentially confusing because we call an application's portion of the screen a window when talking about interactions with the operating system. The getBoundingClientRect() method of any document element will return an object with top, left, bottom, and right properties describing the location of the element in the viewport.
